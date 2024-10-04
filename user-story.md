@@ -6,6 +6,10 @@
   I want the site to be as accessible as possible  
   *So that I can access and consume the content regardless of my abilities or potential barriers.*
 
+  - **As a user of any kind,**  
+  I want an exprience that is error free and if an error occures I'm given clear prompts as to what has happened and if it is related to my actions how to procede correctly. 
+  *So that I understand why something has gone wrong and if I need to change my input.*
+
 - **As a guest user,**  
   I want to quickly understand what the site is about and if it’s relevant to me  
   *So that I know if I’m in the right place.*
@@ -45,6 +49,12 @@
 - **As a registered user,**  
   I want to "favourite" or "like" activities  
   *So that I can easily find them later in a "My Liked Activities" section.*
+
+  - **As a registered user,**  
+  I want to be able to add image files to the activities I create  
+  *So that I can showcase the idea and provide visual support for those who wish to try it for themselves.*
+  
+
 
 ---
 
