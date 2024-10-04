@@ -18,7 +18,7 @@ const sparksSchema = new mongoose.Schema({
     variations: { type: String},
     comment: [commentSchema],
     user: {type:mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-    tag: [tagSchema]
+    tags: [tagSchema]
 
 })
 

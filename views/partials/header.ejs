@@ -1,0 +1,33 @@
+<div class="header">
+    <nav id="navbar">
+        <div class="logo">
+            <a href="#"><img src="/images/parent-child-white 1.svg" 
+                alt="App logo abstract drawing of a smaller heart inside a larger hard represenitng parent and child"></a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="">Home</a></li>
+            <li><a href="">Browse Sparks</a></li>
+            <li><a href="">Make A Spark</a></li>
+            <li><a href="">My Profile</a></li>
+            <li><a href="">About Us</a></li>
+            <li><a href="">Log Out</a></li>
+            <li><a href="">Log In</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+</div>
+
+<script>
+    const burger = document.querySelector('.burger');
+    const navLinks = document.querySelector('.nav-links');
+
+    burger.addEventListener('click', () => {
+        navLinks.classList.toggle('nav-active');
+
+        burger.classList.toggle('toggle');
+    })
+</script>

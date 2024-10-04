@@ -1,0 +1,168 @@
+/* Main Elements */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* Change body font later on */
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url("/images/Orange-splodge.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+h1{
+    color: blue;
+}
+
+/* Nav Bar */
+
+.logo img{
+    width: 4vw;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #F0821D;
+}
+
+.nav-links {
+    list-style: none;
+}
+
+.nav-links li {
+    display: inline-block;
+    padding: 0 20px;
+}
+
+.nav-links a {
+    color: #001060;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.nav-links a:focus,
+.nav-links a:hover {
+    background-color: #555;
+    color: #fff;
+}
+
+.logo a {
+    color: white;
+    text-decoration: none;
+}
+
+.burger {
+    display: none;
+}
+
+/* Burger icon animation */
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.toggle .line2 {
+    opacity: 0;
+}
+
+.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Forms */
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    background-color: #001060;
+    border-radius: 25px;
+    padding: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 75%;
+}
+
+form label {
+    margin-top: 25px;
+    font-size: 5vw;
+    color: white;
+}
+form input {
+    height: 50px;
+    width: 75%;
+}
+
+form button {
+    margin: 10px;
+    padding: 10px;
+    font-size: 24pt;
+    background-color: #F0821D;
+    color: white;
+    border-radius: 15px;
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+    .nav-links{
+        position: absolute;
+        right: 0;
+        height: 92vh;
+        top: 8vh;
+        background-color: #333;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+    }
+
+    .nav-links li {
+        opacity: 0;
+    }
+
+    .burger {
+        display: block;
+        cursor: pointer;
+    }
+
+    .burger div {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        margin: 5px;
+        transition: all 0.3s ease;
+    }
+
+    .nav-active {
+        transform: translateX(0);
+    }
+
+    @keyframes navLinkFade {
+        form {
+            opacity: 0;
+        }
+        to{
+            opacity: 1;
+        }
+    }
+    .nav-links li {
+        animation: navLinkFade 0.5s ease forwards 0.5s;
+    }
+}
+

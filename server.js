@@ -3,6 +3,7 @@ const express = require('express');
 const morgan = require('morgan');
 const mongoose = require ('mongoose');
 const methodOverride = require('method-override');
+const path = require('path');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 require('dotenv/config');
@@ -19,7 +20,7 @@ const port = 3000
 app.use(morgan('dev'));
 app.use(express.static('public')); //Check public folder on each request
 app.use(express.urlencoded({ extended: false }));
-
+app.use(methodOverride("+method"));
 
 app.use('/sparks', sparksRouter);
 
@@ -29,8 +30,8 @@ app.use('/sparks', sparksRouter);
 //!--Routes
 //-- Landing Page
 app.get('/', (req, res) => {
-    res.send('<h1>Hello Home Page</h1>')
-})
+    res.render('index.ejs')
+});
 
 
 

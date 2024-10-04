@@ -7,25 +7,36 @@ const express = require('express');
 const router = express.Router();
 
 //!--Model
-const sparks = require('../models/sparks.js')
+const sparks = require('../models/sparks.js');
 
 //!--Middleware Functions
 
 
 //!--Routes
 //--Sparks Index Page
-router.get('/', (req, res) => {
-    res.send("<h1>Sparks Index Page ✅</h1>")
+router.get('/', async (req, res) => {
+    try{
+        const allSparks = await sparks.find();
+        return res.render('sparks/index.ejs', { allSparks })
+    } catch (error){
+        console.log(error)
+        return res.status(500).send('<h1>Something went wrong</h1>')
+    }
 })
 
 //--Sparks Create Page
 router.get('/new', (req, res) => {
-    res.send("<h1>Sparks Create Page ✅</h1>")
+    res.render("sparks/new.ejs")
 })
 
 //--Sparks Create Route
-router.post('/', (req, res) => {
-    res.send("<h1>Sparks Create Route Test ✅</h1>")
+router.post('/', async (req, res) => {
+    try {
+        const spark = await sparks.create(req,body)
+        return res.redirect('/')
+    } catch (error) {
+        return res.status(500).send('<h1>Something went wrong</h1>')
+    }
 })
 
 //--Sparks Show Page
