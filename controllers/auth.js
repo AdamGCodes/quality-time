@@ -34,8 +34,18 @@ router.post('/sign-up', async (req, res) =>{
             //This works but will need to make this a flash message redirecting to the signup form when I get to that stage.
             return res.send(`Username ${req.body.username} is already taken. Please use a different username.`)
         } else {
-        const newUser = await User.create(req.body)
+            const newUser = await User.create(req.body)
+
+            //Create a session
+            req.session.user = {
+                username: newUser.username,
+                _id: newUser._id
+            }
+            //Save sessions in the DB
+            req.session.save((err) => {
+            console.log(err)
             return res.redirect('/')
+        });    
         };
     } catch (error) {
         return res.status(500).send('<h1>Something went wrong</h1>')
@@ -69,12 +79,12 @@ try {
         username: userInDatabase.username,
         _id: userInDatabase._id
     };
-// //Saving the session data in DB
-// req.session.save((err)=> {
-//     console.log(err)
-//     return res.redirect('/')
-// });
-    return res.redirect("/");
+//Saving the session data in DB
+    req.session.save((err)=> {
+        console.log(err)
+        return res.redirect('/')
+});
+    // return res.redirect("/");
 }catch(error){
     return res.status(500).send('<h1>Something went wrong</h1>');
 }
@@ -87,7 +97,7 @@ router.get('/sign-out', (req, res) => {
             return res.status(500).send('<h1>Something went wrong</h1>');
         }
     });
-    res.redirect("/")
+        res.redirect("/")
 })
 //--
 
