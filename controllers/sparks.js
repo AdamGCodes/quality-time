@@ -7,7 +7,7 @@ const express = require('express');
 const router = express.Router();
 
 //!--Model
-const sparks = require('../models/sparks.js');
+const Spark = require('../models/sparks.js');
 
 //!--Middleware Functions
 
@@ -16,7 +16,7 @@ const sparks = require('../models/sparks.js');
 //--Sparks Index Page
 router.get('/', async (req, res) => {
     try{
-        const allSparks = await sparks.find();
+        const allSparks = await Spark.find();
         return res.render('sparks/index.ejs', { allSparks })
     } catch (error){
         console.log(error)
@@ -32,16 +32,25 @@ router.get('/new', (req, res) => {
 //--Sparks Create Route
 router.post('/', async (req, res) => {
     try {
-        const spark = await sparks.create(req,body)
-        return res.redirect('/')
+        console.log(req.body)
+        const spark = await Spark.create(req.body)
+        console.log(spark)
+        return res.redirect('/sparks')
     } catch (error) {
         return res.status(500).send('<h1>Something went wrong</h1>')
     }
 })
 
 //--Sparks Show Page
-router.get('/:sparkId', (req, res) => {
-    res.send("<h1>Sparks Show Page ✅</h1>")
+router.get('/:sparkId', async (req, res, next) => {
+    try {
+        const spark = await Spark.findById(req.params.sparkId)
+        if (!spark) return next()
+        return res.render('sparks/show.ejs', { spark })
+    } catch (error) {
+        console.log(error)
+        return res.status(500).send('<h1>Something went wrong</h1>')
+    }
 })
 
 
