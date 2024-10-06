@@ -11,5 +11,10 @@
 
 <body>
     <h1>Index Page ✅</h1>
+    <% if (user) { %>
+        <h2>Welcome To Quality Time <%= user.username %></h2>
+    <% } else { %>
+        <h2>Welcome To Quality Time Guest</h2>
+    <% } %>
 </body>
 </html>

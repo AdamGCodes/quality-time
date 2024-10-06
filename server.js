@@ -21,14 +21,14 @@ app.use(morgan('dev'));
 app.use(express.static('public')); //Check public folder on each request
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("+method"));
-// app.use(session({
-//     secret: process.env.SESSION_SECRET,
-//     resave: false,
-//     saveUninitialized: true,
-//     store: MongoStore.create({
-//         mongUrl: process.env.MONGODB_URI
-//     })
-// }))
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+    // store: MongoStore.create({
+        //mongUrl: process.env.MONGODB_URI
+    // })
+}))
 
 
 
@@ -37,7 +37,9 @@ app.use(methodOverride("+method"));
 //!--Routes
 //-- Landing Page
 app.get('/', (req, res) => {
-    res.render('index.ejs')
+    res.render('index.ejs', {
+        user: req.session.user,
+    })
 });
 
 
