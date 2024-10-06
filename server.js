@@ -8,6 +8,11 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo');
 require('dotenv/config');
 
+
+//!-- Middleware Functions
+const isSignedIn = require('./middleware/is-signed-in.js')
+
+
 //!--Routers/Controllers
 const sparksRouter = require('./controllers/sparks.js');
 const authRouter = require('./controllers/auth.js')
@@ -29,6 +34,7 @@ app.use(session({
         mongoUrl: process.env.MONGODB_URI
     })
 }))
+
 
 
 

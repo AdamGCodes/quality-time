@@ -8,6 +8,7 @@ const router = express.Router();
 
 //!--Model
 const Spark = require('../models/sparks.js');
+const isSignedIn = require('../middleware/is-signed-in.js');
 
 //!--Middleware Functions
 
@@ -41,6 +42,12 @@ router.post('/', async (req, res) => {
     }
 })
 
+//--Profile Page
+router.get('/profile', isSignedIn, async (req, res, next) => {
+    res.render('/profile.ejs')
+})
+
+
 //--Sparks Show Page
 router.get('/:sparkId', async (req, res, next) => {
     try {
@@ -52,7 +59,6 @@ router.get('/:sparkId', async (req, res, next) => {
         return res.status(500).send('<h1>Something went wrong</h1>')
     }
 })
-
 
 //--Sparks Update Page
 router.get('/:sparkId/edit', (req, res) => {
@@ -70,8 +76,6 @@ router.delete('/:sparkId', (req, res) => {
 })
 
 
-
-//--
 
 
 //--
