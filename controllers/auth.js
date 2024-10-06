@@ -29,14 +29,15 @@ router.post('/sign-up', async (req, res) =>{
         }
         // Hash password
         req.body.password = bcrypt.hashSync(req.body.password, 10)
-
+        const userInDatabase = await User.findOne({ username: req.body.username});
+        if (userInDatabase) {
+            //This works but will need to make this a flash message redirecting to the signup form when I get to that stage.
+            return res.send(`Username ${req.body.username} is already taken. Please use a different username.`)
+        } else {
         const newUser = await User.create(req.body)
-        return res.redirect('/')
-    } catch (error) {
-        if (error.code === 11000) {
-            const unique = Object.entries(error.keyValue)[0]
-            return res.status(422).send(`${unique[0]} "${unique[1]}" is not available, please try a different ${unique[0] }`)
+            return res.redirect('/')
         }
+    } catch (error) {
         return res.status(500).send('<h1>Something went wrong</h1>')
     }
 })
