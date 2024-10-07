@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit <%= sparkId %></title>
+    <title>Edit <%= spark.title %></title>
     <link rel="stylesheet" href="/stylesheets/style.css">
     <%- include('../partials/header') %>
 </head>
@@ -11,13 +11,13 @@
     <div class="form-wrapper">
         <form action="/sparks/<%= spark._id %>?_method=PUT" method="POST">
             <label for="title">Title of Your Spark</label>
-            <input type="text" name="title" id="title">
+            <input type="text" name="title" id="title" value="<%= spark.title %>">
             <label for="resources">Resources Needed</label>
-            <input type="text" name="resources" id="resources">
+            <input type="text" name="resources" id="resources" value="<%= spark.resources %>">
             <label for="description">Explain Your Spark</label>
-            <input type="text" name="description" id="description">
+            <input type="text" name="description" id="description" value="<%= spark.description %>">
             <label for="variations">Any Variations</label>
-            <input type="text" name="variations" id="variations">
+            <input type="text" name="variations" id="variations" value="<%= spark.description %>">
             <!-- Need to experiment with tags and see what is POSTed when check boxes are used -->
             <!-- Having submitted a string for a dag nothing was sent, do I need to link that to a different form action as it's a different schema. -->
             <label for="tag">Add Tags</label>

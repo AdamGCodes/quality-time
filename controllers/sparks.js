@@ -61,20 +61,26 @@ router.get('/:sparkId', async (req, res, next) => {
 })
 
 //--Sparks Update Page
-router.get('/:sparkId/edit', (req, res) => {
-    res.send("<h1>Sparks Index Page ✅</h1>")
-})
+router.get('/:sparkId/edit', async (req, res) => {
+    const foundSpark = await Spark.findById(req.params.sparkId);
+    res.render('sparks/edit.ejs', {
+        spark: foundSpark,
+    });
+});
 
 //--Sparks Update Route
-router.put('/:sparkId', (req, res) => {
-    res.send("<h1>Sparks Update Route Test ✅</h1>")
-})
+//This is going to requier major update when tags come in to play possibly handle this with 
+//a middleware function?
+router.put('/:sparkId', async (req, res) => {
+    await Spark.findByIdAndUpdate(req.params.sparkId, req.body);
+    res.redirect(`/sparks/${req.params.sparkId}`)
+});
 
 //--Sparks Delete Route
 router.delete('/:sparkId', async (req, res) => {
     await Spark.findByIdAndDelete(req.params.sparkId);
     res.redirect('/sparks');
-})
+});
 
 
 

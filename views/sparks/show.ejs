@@ -18,5 +18,7 @@
 </body>
 <form action="/sparks/<%= spark._id %>?_method=DELETE" method="POST">
     <button type="submit">Delete This Spark</button>
-</form>
+
+<a href="/sparks/<%= spark._id %>/edit">Edit This Spark</a>
+
 </html>
