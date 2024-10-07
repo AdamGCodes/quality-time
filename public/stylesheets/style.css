@@ -1,3 +1,27 @@
+
+/* Google Fonts */
+/* // <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 100 to 900
+
+.lexend-<uniquifier> {
+    font-family: "Lexend", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+}
+
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 200 to 1000
+
+.nunito-<uniquifier> {
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+} */
+
+
+
 /* Main Elements */
 *{
     margin: 0;
@@ -8,22 +32,67 @@
 body {
     /* Change body font later on */
     font-family: Arial, Helvetica, sans-serif;
-    background-image: url("/images/Orange-splodge.svg");
+
+}
+
+header {
+    display:flex;
+    flex-direction: column;
     background-size: cover;
     background-repeat: no-repeat;
+    height: 550px;
+
+}
+.header-bg{
+    z-index: 1;
+}
+.site-heading {
+    position: absolute;
+    top: 10vw;
+    margin-left: 20%;
+    margin-right: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    z-index: 2;
 }
 
+.hero-img {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.hero-img img {
+    top: 0px;
+    max-width: 50%;
+    border-radius: 100%;
+    z-index: 1;
+}
+
+.site-heading img {
+    margin-right: 20px;
+    width: 8vw;
+}
 h1{
-    color: blue;
+    text-align: right;
+    font-family: "Nunito", sans-serif;
+    color: #001060;
+    font-size: 7vw;
+
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: -100px;
+}
 /* Nav Bar */
 
-.logo img{
-    width: 4vw;
-}
-
 nav {
+    top: 0px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -43,7 +112,9 @@ nav {
 .nav-links a {
     color: #001060;
     text-decoration: none;
-    font-size: 18px;
+    font-family: "Nunito", sans-serif;
+    font-weight: 900;
+    font-size: 1.5vw;
 }
 
 .nav-links a:focus,
@@ -73,6 +144,14 @@ nav {
 .toggle .line3 {
     transform: rotate(45deg) translate(-5px, -6px);
 }
+
+/* Home Page */
+
+.welcome {
+    top: 0;
+}
+
+
 
 /* Forms */
 .form-wrapper {

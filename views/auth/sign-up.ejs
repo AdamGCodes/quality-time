@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
-    <%- include('../partials/header') %>
+    <%- include('../partials/head') %>
 </head>
 <body>
+    <header>
+        <%- include('../partials/header') %>
+    </header>
     <div class="form-wrapper">
         <form action="/auth/sign-up" method="POST">
             <label for="username">Username</label>

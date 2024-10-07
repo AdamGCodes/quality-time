@@ -26,7 +26,7 @@ router.get('/', async (req, res) => {
 })
 
 //--Sparks Create Page
-router.get('/new', (req, res) => {
+router.get('/new', isSignedIn, (req, res) => {
     res.render("sparks/new.ejs")
 })
 
@@ -61,7 +61,7 @@ router.get('/:sparkId', async (req, res, next) => {
 })
 
 //--Sparks Update Page
-router.get('/:sparkId/edit', async (req, res) => {
+router.get('/:sparkId/edit', isSignedIn, async  (req, res) => {
     const foundSpark = await Spark.findById(req.params.sparkId);
     res.render('sparks/edit.ejs', {
         spark: foundSpark,
@@ -77,7 +77,7 @@ router.put('/:sparkId', async (req, res) => {
 });
 
 //--Sparks Delete Route
-router.delete('/:sparkId', async (req, res) => {
+router.delete('/:sparkId', isSignedIn, async (req, res) => {
     await Spark.findByIdAndDelete(req.params.sparkId);
     res.redirect('/sparks');
 });

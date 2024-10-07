@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= spark.title %></title>
-        <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <%- include('../partials/head') %>
     
 </head>
 <header>
@@ -16,9 +17,10 @@
     <p><%= spark.description %></p>
     <p><%= spark.variations %></p>
 </body>
+<% if (user) { %>
 <form action="/sparks/<%= spark._id %>?_method=DELETE" method="POST">
     <button type="submit">Delete This Spark</button>
 
 <a href="/sparks/<%= spark._id %>/edit">Edit This Spark</a>
-
+<% } %>
 </html>

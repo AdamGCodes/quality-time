@@ -5,16 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quality Time</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
-    <%- include('./partials/header') %>
-
+    <%- include('./partials/head') %>
 </head>
 
 <body>
-    <h1>Index Page ✅</h1>
-    <% if (user) { %>
-        <h2>Welcome To Quality Time <%= user.username %></h2>
-    <% } else { %>
-        <h2>Welcome To Quality Time Guest</h2>
-    <% } %>
+    <header>
+        <%- include('./partials/header-home') %>
+    </header>
+    <main>
+        <div class="welcome">
+            <% if (user) { %>
+                <h2>Welcome <%= user.username %></h2>
+            <% } else { %>
+                <h2>Welcome To Quality Time Guest</h2>
+            <% } %>
+        </div>
+        <div class="home-content">
+            <h2>
+
+            </h2>
+            <p>
+
+            </p>
+            <button><a href="/auth/sign-in"></a></button>
+            <button><a href="/auth/sign-up"></a></button>
+
+        </div>
+
+    </main>
 </body>
 </html>
