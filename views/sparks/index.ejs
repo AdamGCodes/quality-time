@@ -12,12 +12,28 @@
         <%- include('../partials/header') %>
     </header>
     <h1>All Our Sparks</h1>
-    <div>
-        <ul>
-            <% allSparks.forEach(Spark => { %>
-                <li><a href="/sparks/<%= Spark._id %>"><%= Spark.title %></a></li>
-            <% }) %>
-        </ul>
+    <div class="card-wrapper">
+        <% allSparks.forEach(Spark => { %>
+            <a href="/sparks/<%= Spark._id %>">
+                <div class="spark-card">
+                    <div class="spark-card-title">
+                        <%= Spark.title %>
+                    </div>
+                    <div class="spark-card-img">
+                        <img src="/images/painted-hands-kid.jpg" alt="Young child holding hands up showing they are covered in brightly coloured paints.">
+                    </div>
+                    <div class="spark-card-blurb">
+                        <%= Spark.description %>
+                    </div>
+                    <div class="spark-card-tags">
+                        <p>NO TAGS YET</p>
+                    </div>
+                    <div class="spark-card-rating">
+                        <p>*****</p>
+                    </div>
+                </div>
+            </a>
+        <% }) %>    
     </div>
 </body>
 </html>

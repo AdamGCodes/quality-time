@@ -30,56 +30,85 @@
 }
 
 body {
-    /* Change body font later on */
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Lexend", sans-serif;
+    font-size: 16pt;
 
 }
 
 header {
     display:flex;
+    position: relative;
     flex-direction: column;
     background-size: cover;
     background-repeat: no-repeat;
     height: 550px;
 
 }
-.header-bg{
-    z-index: 1;
-}
-.site-heading {
-    position: absolute;
-    top: 10vw;
-    margin-left: 20%;
-    margin-right: 20%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    z-index: 2;
-}
-
-.hero-img {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-}
-
-.hero-img img {
+.header-bg-home{
+    position:relative;
     top: 0px;
-    max-width: 50%;
-    border-radius: 100%;
-    z-index: 1;
+}
+.header-bg {
+    position: relative;
+    top: -5vw;
+}
+.header-content-home {
+    display: flex;
+    position:absolute;
+    right: 6vw;
+    top: 1vw;
+    width: 100%;
+}
+.header-content-home {
+    display: flex;
+    position: absolute;
+    top: 1vw;
+    
+}
+.header-hero-img{
+    display: flex;
+    position: absolute;
+    left: 4vw;
+    top: 8vw;
+
+}
+.header-hero-img img{
+        border-radius: 100%;
+        width: 40vw;
+        height: auto;
 }
 
-.site-heading img {
+.header-title-logo-home {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
     margin-right: 20px;
-    width: 8vw;
+    width: 100%;
+    align-items: flex-end;
+    top: 14vw;
+
 }
-h1{
-    text-align: right;
+.header-title-logo {
+    margin-left: 1vw;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+    align-items: flex-start;
+    top: 14vw;
+
+}
+.header-content h1{
+    display: flex;
     font-family: "Nunito", sans-serif;
     color: #001060;
-    font-size: 7vw;
-
+    font-size: 8vw;
+}
+.header-content h2{
+    display: flex;
+    font-size: 4vw;
+    font-family: "Nunito", sans-serif;
+    color: #001060;
 }
 
 main {
@@ -98,15 +127,28 @@ nav {
     align-items: center;
     padding: 20px;
     background-color: #F0821D;
+    z-index: 1;
 }
 
+nav a img {
+    width: 7vw;
+    margin: -10px 0 -7vw 10px;
+}
+
+.welcome {
+    font-family: "Nunito", sans-serif;
+    color: white;
+    font-size: 2vw;
+    margin-left: -2vw;
+
+}
 .nav-links {
     list-style: none;
 }
 
 .nav-links li {
     display: inline-block;
-    padding: 0 20px;
+    
 }
 
 .nav-links a {
@@ -114,12 +156,14 @@ nav {
     text-decoration: none;
     font-family: "Nunito", sans-serif;
     font-weight: 900;
-    font-size: 1.5vw;
+    font-size: 2vw;
+    border-radius: 20px;
+    padding: 20px;
 }
 
 .nav-links a:focus,
 .nav-links a:hover {
-    background-color: #555;
+    background-color: #001060;
     color: #fff;
 }
 
@@ -151,7 +195,45 @@ nav {
     top: 0;
 }
 
+/* Sparks/Index */
 
+.card-wrapper {
+    width: 85%;
+    margin: 100px auto;
+    display: flex;
+    justify-content: center;
+}
+.card-wrapper a {
+    text-decoration: none;
+}
+.spark-card {
+    text-align: center;
+    width:325px;
+    padding:25px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    margin: 20px;
+}
+
+.spark-card-title {
+    background-color: #001060;
+    color: white;
+    text-align: center;
+    font-family: "Nunito", sans-serif;
+    font-size: 32px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+.spark-card img{
+    width: 200px;
+}
+
+.spark-card-blurb {
+    font-size: 17px;
+    color: #001060;
+    line-height: 1.5;
+}
 
 /* Forms */
 .form-wrapper {
@@ -193,8 +275,15 @@ form button {
     border-radius: 15px;
 }
 
-
-
+@media screen and (min-width: 768px) {
+    .header-title-logo-home {
+        top: 8vw;
+    }
+    
+    .header-title-logo {
+        top: 8vw;
+    }
+}
 
 @media screen and (max-width: 768px) {
     .nav-links{
@@ -202,17 +291,23 @@ form button {
         right: 0;
         height: 92vh;
         top: 8vh;
-        background-color: #333;
+        background-color: rgba(0, 0, 0, 0.95);
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 50%;
+        width: 100%;
         transform: translateX(100%);
         transition: transform 0.5s ease-in;
+        z-index: 2;
     }
 
     .nav-links li {
         opacity: 0;
+        line-height: 100px;
+    }
+    .nav-links a {
+        color: white;
+        font-size: 5vw;
     }
 
     .burger {
@@ -242,6 +337,14 @@ form button {
     }
     .nav-links li {
         animation: navLinkFade 0.5s ease forwards 0.5s;
+    }
+
+    .card-wrapper {
+        flex-direction: column;
+    }
+    /* The bellow doesn't seem to be doing anything need to investiage further */
+    .card {
+        width:calc(100% - 40px)
     }
 }
 

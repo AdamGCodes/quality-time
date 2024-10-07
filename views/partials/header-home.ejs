@@ -1,5 +1,13 @@
 <header>
     <nav id="navbar">
+        <img src="/images/parent-child-white 1.svg" alt="App logo abstract drawing of a smaller heart inside a larger hard represenitng parent and child">
+        <div class="welcome">
+            <% if (user) { %>
+                <p><%= user.username %></p>
+            <% } else { %>
+                <p>Guest</p>
+            <% } %>
+        </div>
         <ul class="nav-links">
             <li><a href="/">Home</a></li>
             <li><a href="/sparks">Find a Spark</a></li>
@@ -20,15 +28,17 @@
             <div class="line3"></div>
         </div>
     </nav>
-    <img class="header-bg" src="/images/Orange-splodge.svg" alt="decorative">
-    <div class="site-heading">
-        <img src="/images/parent-child-white 1.svg" alt="App logo abstract drawing of a smaller heart inside a larger hard represenitng parent and child">
-        <h1>Quality Time</h1>
+    <img class="header-bg-home" src="/images/Orange-splodge.svg" alt="decorative">
+    <div class="header-content">
+        <div class="header-hero-img">
+            <img src="/images/blowing-bubbles.jpg" alt="A father and sun laying down on grass and joyfully blowing bubbles together.">
+        </div>
+        <div class="header-title-logo-home">
+            <h1>Quality Time</h1>
+            <h2>starts with a spark</h2>
+
+        </div>
     </div>
-    <div class="hero-img">
-        <img src="/images/blowing-bubbles.jpg" alt="">
-    </div>
-    
 </header>
 
 <script>
