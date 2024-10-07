@@ -6,12 +6,12 @@ const methodOverride = require('method-override');
 //const path = require('path');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
-require('dotenv/config');
 
+require('dotenv/config');
 
 //!-- Middleware Functions
 const isSignedIn = require('./middleware/is-signed-in.js')
-
+const passUserToView = require("./middleware/pass-user-to-view.js")
 
 //!--Routers/Controllers
 const sparksRouter = require('./controllers/sparks.js');
@@ -25,7 +25,7 @@ const port = 3000
 app.use(morgan('dev'));
 app.use(express.static('public')); //Check public folder on each request
 app.use(express.urlencoded({ extended: false }));
-app.use(methodOverride("+method"));
+app.use(methodOverride("_method"));
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
@@ -35,17 +35,13 @@ app.use(session({
     })
 }))
 
-
-
-
+app.use(passUserToView);
 
 
 //!--Routes
 //-- Landing Page
 app.get('/', (req, res) => {
-    res.render('index.ejs', {
-        user: req.session.user,
-    })
+    res.render('index.ejs')
 });
 
 

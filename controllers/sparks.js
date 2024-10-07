@@ -71,8 +71,9 @@ router.put('/:sparkId', (req, res) => {
 })
 
 //--Sparks Delete Route
-router.delete('/:sparkId', (req, res) => {
-    res.send("<h1>Sparks Delete Route Test ✅</h1>")
+router.delete('/:sparkId', async (req, res) => {
+    await Spark.findByIdAndDelete(req.params.sparkId);
+    res.redirect('/sparks');
 })
 
 
