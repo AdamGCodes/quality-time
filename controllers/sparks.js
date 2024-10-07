@@ -44,7 +44,7 @@ router.post('/', async (req, res) => {
 
 //--Profile Page
 router.get('/profile', isSignedIn, async (req, res, next) => {
-    res.render('/profile.ejs')
+    res.render('sparks/profile.ejs')
 })
 
 
