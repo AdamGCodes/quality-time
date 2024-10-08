@@ -48,6 +48,11 @@
 
     <!-- Create New Comment -->
 
+    <form action="/sparks/<%= spark._id %>/comments" method="POST">
+        <label for="comment">Comment</label>
+        <input type="text" name="comment" id="comment">
+        <button class="link-btn"  type="submit">Share Comment</button>
+    </form>
 
 </body>
 <!-- Link to Scripts -->

@@ -100,18 +100,33 @@ router.put('/:sparkId', async (req, res) => {
     }
 });
 
-
 //--Sparks Delete Route
 router.delete('/:sparkId', isSignedIn, async (req, res) => {
     await Spark.findByIdAndDelete(req.params.sparkId);
     res.redirect('/sparks');
 });
 
+//--Comments
+//Create Comments
+router.post('/:sparkId/comments', async (req, res)=> {
+    try {
+        req.body.user = req.session.user._id
+        const spark = await Spark.findById(req.params.sparkId)
+        if (!spark) return next()
+        spark.comments.push(req.body)
+        await spark.save()
+        
+        return res.redirect(`/sparks/${req.params.sparkId}`)
+    } catch (error) {
+        console.log(error)
+        return res.status(500).send('<h1>Something went wrong</h1>')
+    }
+})
 
+//Delete Comments
+router.delete('/:sparkId/comments/:commentId', async (req, res) => {
 
-
-//--
-
+})
 
 // Export Router
 module.exports = router
