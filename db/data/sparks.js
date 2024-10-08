@@ -1,3 +1,5 @@
+const { default: mongoose, Types } = require("mongoose");
+
 module.exports = [
     {
         title: "Rubber band powered car",
@@ -9,7 +11,7 @@ module.exports = [
         title: "Paper plate animals",
         resources: "Paper plates, markers, glue, scissors, colored paper",
         description: "Cut shapes from the paper plate and glue them together to form animal faces or bodies. Use markers to add details.",
-        variations: "Use googly eyes or cotton balls for added texture and fun."
+        variations: "Use googly eyes or cotton balls for added texture and fun."     
     },
     {
         title: "Homemade bird feeder",
@@ -120,5 +122,3 @@ module.exports = [
         variations: "Try using different materials like cardboard for the blades."
     }
 ];
-
-]
