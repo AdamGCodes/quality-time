@@ -237,6 +237,23 @@ In either sentences or bullets, explain what your future improvements would be.
 
 Insert your Future Improvements here:
 
+<!-- <div class="comments-section">
+        <% spark.comments.forEach(comment => { %>
+            <p>
+                <strong><%= comment.user.username %></strong>
+                <small><%= new Date(comment.createdAt).toDateString() %></small><br>
+                <%= comment.text %>
+            </p>
+            <form action="" class="link-btn">
+                <button type="submit">Delete</button>
+            </form>
+    </div>
+    <% }) %> -->
 
 
-
+    <!-- <% if (user) { %>
+        <form class="comments-form" action="/sparks/<%= spark._id %>/comments" method="POST">
+            <label for="text">Text:</label>
+            <input type="text" name="text" id="text">
+            
+        </form> -->

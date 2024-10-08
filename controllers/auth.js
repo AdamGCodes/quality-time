@@ -77,7 +77,9 @@ try {
 //Create the session
     req.session.user = {
         username: userInDatabase.username,
-        _id: userInDatabase._id
+        _id: userInDatabase._id,
+        email: userInDatabase.email,
+
     };
 //Saving the session data in DB
     req.session.save((err)=> {

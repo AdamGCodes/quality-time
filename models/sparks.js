@@ -16,9 +16,12 @@ const sparkSchema = new mongoose.Schema({
     resources: {type: String, required: true},
     description: { type: String, required: true },
     variations: { type: String},
-    //comment: [commentSchema],
-    //user: {type:mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-    tags: [tagSchema]
+    tags: [tagSchema],
+    //comments: [commentSchema],
+    creator: {
+    type:mongoose.Schema.Types.ObjectId, 
+    ref: 'User', required: true },
+    
 
 })
 

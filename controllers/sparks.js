@@ -34,6 +34,7 @@ router.get('/new', isSignedIn, (req, res) => {
 //--Sparks Create Route
 router.post('/', async (req, res) => {
     try {
+        req.body.creator = req.session.user._id
         console.log(req.body)
         const spark = await Spark.create(req.body)
         console.log(spark)
@@ -52,9 +53,13 @@ router.get('/profile', isSignedIn, async (req, res, next) => {
 //--Sparks Show Page
 router.get('/:sparkId', async (req, res, next) => {
     try {
-        const spark = await Spark.findById(req.params.sparkId)
-        if (!spark) return next()
-        return res.render('sparks/show.ejs', { spark })
+        if (mongoose.Types.ObjectId.isValid(req.params.sparkId)) {
+            const spark = await Spark.findById(req.params.sparkId).populate('creator')
+            if (!spark) return next()
+            return res.render('sparks/show.ejs', { spark })
+        } else {
+            next()
+        }
     } catch (error) {
         console.log(error)
         return res.status(500).send('<h1>Something went wrong</h1>')
@@ -63,19 +68,38 @@ router.get('/:sparkId', async (req, res, next) => {
 
 //--Sparks Update Page
 router.get('/:sparkId/edit', isSignedIn, async  (req, res) => {
-    const foundSpark = await Spark.findById(req.params.sparkId);
-    res.render('sparks/edit.ejs', {
-        spark: foundSpark,
-    });
+    try{
+        if(mongoose.Types.ObjectId.isValid(req.params.sparkId)) {
+            const foundSpark = await Spark.findById(req.params.sparkId);
+            if (!foundSpark) return next()
+            if(!foundSpark.creator.equals(req.session.user._id)){
+                return res.redirect(`/sparks/${req.params.sparkId}`)
+            }
+        return res.render(`sparks/edit.ejs`, {foundSpark})
+    } next()
+    } catch (error) {
+        console.log (error)
+        return res.status(500).send('<h1>Something went wrong</h1>')
+    };
 });
 
 //--Sparks Update Route
 //This is going to requier major update when tags come in to play possibly handle this with 
 //a middleware function?
 router.put('/:sparkId', async (req, res) => {
-    await Spark.findByIdAndUpdate(req.params.sparkId, req.body);
-    res.redirect(`/sparks/${req.params.sparkId}`)
+    try {
+        const sparkToUpdate = await Spark.findById(reqparams.sparkId)
+        if(sparkToUpdate.creator.equals(req.session.user._id)) {
+            const updatedSpark = await Spark.findByIdAndUpdate(req.params.sparkId, req.body, {new: true});
+            res.redirect(`/sparks/${req.params.sparkId}`)
+        }
+        throw new Error('Only the the creator of a spark can edit it.')
+    } catch (error) {
+        console.log(error)
+        return res.status(500).send('<h1>Something went wrong</h1>')
+    }
 });
+
 
 //--Sparks Delete Route
 router.delete('/:sparkId', isSignedIn, async (req, res) => {
