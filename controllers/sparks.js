@@ -14,6 +14,7 @@ const isSignedIn = require('../middleware/is-signed-in.js');
 
 
 //!--Routes
+
 //--Sparks Index Page
 router.get('/', async (req, res) => {
     try{

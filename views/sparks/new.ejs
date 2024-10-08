@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Make a Spark</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
     <%- include('../partials/head') %>
     
 </head>
 <body>
-        <header>
+    <header>
         <%- include('../partials/header') %>
     </header>
+    <h1>Make Your Spark</h1>
     <div class="form-wrapper">
         <form action="/sparks" method="POST">
             <div class="row">
@@ -56,10 +58,13 @@
                     <input type="text" name="tag" id="tag">
                 </div>
             </div>
-            <div class="row">
-                <button type="submit">Share Your Spark</button>
+            <div class="btn-row">
+                <button class="form-btn" type="submit">Share Your Spark</button>
             </div>
         </form>
     </div>
 </body>
+
+<!-- Link to Scripts -->
+    <script src="/scripts/scripts.js"></script>
 </html>

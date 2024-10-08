@@ -12,15 +12,38 @@
     <%- include('../partials/header') %>
 </header>
 <body>
-    <h1><%= spark.title %></h1>
-    <p><%= spark.resources %></p>
-    <p><%= spark.description %></p>
-    <p><%= spark.variations %></p>
-</body>
-<% if (user) { %>
-<form action="/sparks/<%= spark._id %>?_method=DELETE" method="POST">
-    <button type="submit">Delete This Spark</button>
+    <div class="show-spark-main">
+        <h1><%= spark.title %></h1>
+        <div class="show-spark-content">
+            <h2>Resources</h2>
+            <p><%= spark.resources %></p>
+        </div>
+        <div class="show-spark-content">
+            <h2>Description</h2>
+            <p><%= spark.description %></p>
+        </div>
+        <div class="show-spark-content">
+            <h2>Variations</h2>
+            <p><%= spark.variations %></p>
+        </div>
+    </div>
 
-<a href="/sparks/<%= spark._id %>/edit">Edit This Spark</a>
+<% if (user) { %>
+    <div class="links-wrapper">
+        <div class="links-column">
+            <form action="/sparks/<%= spark._id %>?_method=DELETE" method="POST">
+                <button class="link-btn shadow-none" type="submit">Delete This Spark</button>
+            </form>
+        </div>
+        <div class="links-column">
+            <div class="link-btn">
+                <a href="/sparks/<%= spark._id %>/edit">Edit This Spark</a>
+            </div>
+        </div>
+    </div>
 <% } %>
+
+</body>
+<!-- Link to Scripts -->
+    <script src="/scripts/scripts.js"></script>
 </html>

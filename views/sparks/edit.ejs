@@ -11,22 +11,58 @@
     <header>
         <%- include('../partials/header') %>
     </header>
+    <h1>Edit Your Spark</h1>
     <div class="form-wrapper">
-        <form action="/sparks/<%= spark._id %>?_method=PUT" method="POST">
-            <label for="title">Title of Your Spark</label>
-            <input type="text" name="title" id="title" value="<%= spark.title %>">
-            <label for="resources">Resources Needed</label>
-            <input type="text" name="resources" id="resources" value="<%= spark.resources %>">
-            <label for="description">Explain Your Spark</label>
-            <input type="text" name="description" id="description" value="<%= spark.description %>">
-            <label for="variations">Any Variations</label>
-            <input type="text" name="variations" id="variations" value="<%= spark.description %>">
+        <form  action="/sparks/<%= spark._id %>?_method=PUT" method="POST">
+            <div class="row">
+                <div class="column-25">
+                    <label for="title">Title of Your Spark</label>
+                </div>
+                <div class="column-75">
+                    <input type="text" name="title" id="title" value="<%= spark.title %>">
+                </div>
+            </div>
+            <div class="row">
+                <div class="column-25">
+                    <label for="resources">Resources Needed</label>
+                </div>
+                <div class="column-75">
+                    <input type="text" name="resources" id="resources" value="<%= spark.resources %>">
+                </div>
+            </div>
+            <div class="row">
+                <div class="column-25">
+                    <label for="description">Explain Your Spark</label>
+                </div>
+                <div class="column-75">
+                    <textarea type="text" name="description" id="description" value=""><%= spark.description %>
+                    </textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column-25">
+                    <label for="variations">Any Variations</label>
+                </div>
+                <div class="column-75">
+                    <input type="text" name="variations" id="variations" value="<%= spark.variations %>">
+                </div>
+            </div>
             <!-- Need to experiment with tags and see what is POSTed when check boxes are used -->
             <!-- Having submitted a string for a dag nothing was sent, do I need to link that to a different form action as it's a different schema. -->
-            <label for="tag">Add Tags</label>
-            <input type="text" name="tag" id="tag">
-            <button type="submit">Share Your Spark</button>
+            <div class="row">
+                <div class="column-25">
+                    <label for="tag">Add Tags</label>
+                </div>
+                <div class="column-75">
+                    <input type="text" name="tag" id="tag">
+                </div>
+            </div>
+            <div class="btn-row">
+                <button class="form-btn" type="submit">Submit Edits</button>
+            </div>
         </form>
     </div>
 </body>
+<!-- Link to Scripts -->
+    <script src="/scripts/scripts.js"></script>
 </html>

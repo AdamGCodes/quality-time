@@ -10,5 +10,21 @@
     <header>
         <%- include('../partials/header') %>
     </header>
+    <div class="profile-content">
+        <h1>Welcome to your profile area <%= user.username %> </h1>
+        <ul>
+            <li>
+                <h3>Username <%= user.username %></h3>
+            </li>
+            <li>
+                <h3>email <%= user.email %></h3>
+            </li>
+        </ul>
+
+    </div>
+
+
 </body>
+<!-- Link to Scripts -->
+    <script src="/scripts/scripts.js"></script>
 </html>

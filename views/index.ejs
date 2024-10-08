@@ -13,19 +13,39 @@
         <%- include('./partials/header-home') %>
     </header>
     <main>
-        
         <div class="home-content">
-            <h2>
-
-            </h2>
+            <h1>
+                Welcome to Quality Time
+            </h1>
             <p>
-
+                Looking for fun, easy, and affordable ways to make lasting memories with your kids? 
+                Our site is packed with creative ideas that go beyond screens and schedules, helping 
+                you turn everyday moments into unforgettable experiences. Whether it's a rainy day 
+                craft, an outdoor adventure, or a simple family activity, we've got you covered with 
+                enriching ideas that bring joy, laughter, and connection—all without breaking the bank. 
+                Rediscover the magic of quality time, and start creating amazing memories with your 
+                kids today!
             </p>
-            <button><a href="/auth/sign-in"></a></button>
-            <button><a href="/auth/sign-up"></a></button>
-
         </div>
-
+        <div class="links-wrapper">
+            <% if (!user) { %>
+                <div class="links-column">
+                    <div class="link-btn">
+                        <a href="/auth/sign-in">Sign In</a>
+                    </div>
+                </div>
+                <div class="links-column">
+                    <div class="link-btn">
+                        <a href="/auth/sign-up">Sign Up</a>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+        <div class="placeholder">
+            <p>Hopefully carousel of mini cards</p>
+        </div>
     </main>
 </body>
+<!-- Link to Scripts -->
+    <script src="/scripts.js"></script>
 </html>

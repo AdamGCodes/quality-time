@@ -1,4 +1,5 @@
 
+/* IMPORTS */
 /* Google Fonts */
 /* // <uniquifier>: Use a unique and descriptive class name
 // <weight>: Use a value from 100 to 900
@@ -32,9 +33,68 @@
 body {
     font-family: "Lexend", sans-serif;
     font-size: 16pt;
-
 }
 
+h1 {
+    padding: 0 15% 0 15%;
+    width: 100%;
+    font-family: "Nunito", sans-serif;
+    font-size: 5vw;
+    color: #001060;
+    text-align: center;
+}
+
+.links-wrapper{
+    display: flex;
+    margin: 0;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.link-column{
+    width: 50%;
+}
+.link-btn {
+    border: solid black 2px;
+    border-radius: 50px;
+    background-image: radial-gradient(#001060, #223282); 
+    width: 300px; 
+    color: white;
+    font-size: 22pt;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 10px;
+    box-shadow: 5px 5px 5px black;
+}
+.link-btn:hover {
+    box-shadow: 1px 1px 1px black;
+    border: solid #F0821D 4px;
+}
+.link-btn a {
+    color: white;
+    text-decoration: none;
+}
+.links-wrapper button {
+    font-family: "Lexend", sans-serif;
+}
+.form-btn {
+    border: solid black 2px;
+    border-radius: 50px;
+    background-image: radial-gradient(#F0821D , #F2A43F);
+    width: 300px;
+    color: #001060;
+    font-size: 22pt;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 10px;
+    box-shadow: 5px 5px 5px black;
+}
+.form-btn:hover {
+    box-shadow: 1px 1px 1px black;
+    border: solid white 4px;
+}
+/* Header and Home Header */
 header {
     display:flex;
     position: relative;
@@ -53,17 +113,50 @@ header {
     top: -5vw;
 }
 .header-content-home {
+    padding-left: 30px;
     display: flex;
-    position:absolute;
-    right: 6vw;
-    top: 1vw;
     width: 100%;
-}
-.header-content-home {
-    display: flex;
     position: absolute;
     top: 1vw;
-    
+    right: 30px;
+}
+.header-content-home h1 {
+    display: flex;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-family: "Nunito", sans-serif;
+    color: #001060;
+    font-size: 8vw;
+    width: fit-content;
+}
+
+.header-content-home h2 {
+    display: flex;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 4vw;
+    font-family: "Nunito", sans-serif;
+    color: #001060;
+}
+.header-content {
+    display: flex;
+    width: 100%;
+    position: absolute;
+    top: 1vw;
+}
+.header-content h1 {
+    padding-left: 30px;
+    display: flex;
+    font-family: "Nunito", sans-serif;
+    color: #001060;
+    font-size: 8vw;
+}
+.header-content h2 {
+    padding-left: 30px;
+    display: flex;
+    font-size: 4vw;
+    font-family: "Nunito", sans-serif;
+    color: #001060;
 }
 .header-hero-img{
     display: flex;
@@ -73,9 +166,9 @@ header {
 
 }
 .header-hero-img img{
-        border-radius: 100%;
-        width: 40vw;
-        height: auto;
+    border-radius: 100%;
+    width: 40vw;
+    height: auto;
 }
 
 .header-title-logo-home {
@@ -89,7 +182,7 @@ header {
 
 }
 .header-title-logo {
-    margin-left: 1vw;
+    margin-left: 0;
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -98,28 +191,14 @@ header {
     top: 14vw;
 
 }
-.header-content h1{
-    display: flex;
-    font-family: "Nunito", sans-serif;
-    color: #001060;
-    font-size: 8vw;
-}
-.header-content h2{
-    display: flex;
-    font-size: 4vw;
-    font-family: "Nunito", sans-serif;
-    color: #001060;
-}
+
 
 main {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: -100px;
 }
-/* Nav Bar */
 
+/* Nav Bar */
 nav {
     top: 0px;
     display: flex;
@@ -189,10 +268,23 @@ nav a img {
     transform: rotate(45deg) translate(-5px, -6px);
 }
 
+
 /* Home Page */
 
-.welcome {
-    top: 0;
+.home-content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: -25vw;
+    margin-bottom: 25px;
+    padding: 0vw 8vw 0vw 8vw;
+}
+
+.placeholder {
+    width: 100%;
+    margin: 50px;
+    height: 300px;
+    background-color: green;
 }
 
 /* Sparks/Index */
@@ -235,35 +327,87 @@ nav a img {
     line-height: 1.5;
 }
 
+/* Sparks Show Page */
+
+.show-spark-main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #001060;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.show-spark-content {
+    border: solid #F0821D 5px;
+    border-radius: 25px;
+    padding: 20px 40px 40px 40px;
+    width: 75%;
+    height: fit-content;
+    background-color: #001060;
+    color: white;
+    box-shadow: 5px 5px 5px black;
+}
+.show-spark-content h2{
+    margin-bottom: 20px;
+}
+.show-spark-content p {
+    text-align: left;
+}
+
+
 /* Forms */
 .form-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 100px;
+    margin-top: 10px;
     background-color: #001060;
-    border-radius: 25px;
-    padding: 20px;
-    margin-left: 10%;
-    margin-right: 10%;
-    width: 80%;
+    padding: 60px;
 }
 form{
     display: flex;
+    gap: 20px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 75%;
+    width: 100%;
+
+}
+.row{
+    width: 100%;
 }
 
+.column-25 {
+    width: 100%;
+}
+.column-75 {
+    width: 100%;
+}
 form label {
-    margin-top: 25px;
-    font-size: 5vw;
+    font-size: 20pt;
     color: white;
 }
 form input {
     height: 50px;
-    width: 75%;
+    width: 100%;
+    font-size: 16pt;
+}
+form input:active {
+    border: solid #F0821D 4px;
+}
+
+textarea {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    height: 400px;
+    text-wrap: wrap;
+    color: red;
+}
+form textarea:active {
+    border: solid #F0821D 4px;
 }
 
 form button {
@@ -275,6 +419,11 @@ form button {
     border-radius: 15px;
 }
 
+@media screen and (min-width: 1190px) {
+    .home-content {
+        margin-top: 0vw;
+    }
+}
 @media screen and (min-width: 768px) {
     .header-title-logo-home {
         top: 8vw;
@@ -283,7 +432,23 @@ form button {
     .header-title-logo {
         top: 8vw;
     }
+    .row {
+        display: flex;
+        flex-direction: row;
+    }
+    .column-25 {
+        width: 25%;
+    }
+
+    .column-75 {
+        width: 75%;
+    }
+    .home-content {
+        margin-top: 4vw;
+    }
 }
+
+
 
 @media screen and (max-width: 768px) {
     .nav-links{

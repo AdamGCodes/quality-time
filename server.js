@@ -39,7 +39,7 @@ app.use(passUserToView);
 
 
 //!--Routes
-//-- Landing Page
+// -- Landing Page
 app.get('/', (req, res) => {
     res.render('index.ejs')
 });
