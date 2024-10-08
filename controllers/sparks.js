@@ -54,7 +54,7 @@ router.get('/profile', isSignedIn, async (req, res, next) => {
 router.get('/:sparkId', async (req, res, next) => {
     try {
         if (mongoose.Types.ObjectId.isValid(req.params.sparkId)) {
-            const spark = await Spark.findById(req.params.sparkId).populate('creator')
+            const spark = await Spark.findById(req.params.sparkId).populate('creator').populate('comments.user')
             if (!spark) return next()
             return res.render('sparks/show.ejs', { spark })
         } else {

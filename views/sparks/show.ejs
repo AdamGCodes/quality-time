@@ -43,17 +43,29 @@
         </div>
     </div>
     <% } %>
-    <h2>Comments</h2>
     
+    <h2>Comments</h2>
+    <!-- Display Comments -->
+    <div class="comments">
+            <div class="comment">
+                <% spark.comments.forEach(comment => { %>
+                <%= comment.comment %>
+                <!-- <%= comment.user %> user.username not working so need to sort that-->
+                <form action="" class="btn-form">
+                    <button type="submit">❌</button>
+                </form>
+            </div>
+        <% }) %>
+    </div>
 
     <!-- Create New Comment -->
-
+<% if(user) { %>
     <form action="/sparks/<%= spark._id %>/comments" method="POST">
         <label for="comment">Comment</label>
         <input type="text" name="comment" id="comment">
         <button class="link-btn"  type="submit">Share Comment</button>
     </form>
-
+<% } %>
 </body>
 <!-- Link to Scripts -->
     <script src="/scripts/scripts.js"></script>
