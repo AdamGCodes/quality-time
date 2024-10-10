@@ -10,12 +10,29 @@
 </head>
 <body>
     <%- include('../partials/header') %>
+    <!-- Plan to include flash partials here -->
     <% if(message) { %>
         <p class="success-message"><%= message %></p>
     <% } %>
     <div class="show-spark-heading">
         <h1><%= spark.title %></h1>
         <h3>Created by <%= spark.creator.username %></h3>
+        <div class="like-btn-div">
+            <% if(user) { %>
+                <% if (spark.likes.some(like => like.equals(user._id))) { %> 
+                        <!-- Unlike -->
+                        <form action="/sparks/<%= spark._id %>/likes?_method=DELETE" method="POST">
+                            <button class="like-btn"><img src="/images/heart-filled.svg" alt="Remove liked status"></button>
+                        </form>
+                <% } else { %>
+                    <!-- Like -->
+                    <form action="/sparks/<%= spark._id %>/likes" method="POST">
+                        <button class="like-btn"><img src="/images/heart-outline.svg" alt="Add liked status"></button>
+                    </form>
+                <% } %>
+            <% } %>
+            <p><strong>Likes: </strong></p><p> <%= spark.likes.length %></p>
+        </div> 
     </div>
         <div class="show-spark-main">
             <div class="show-spark-content">
@@ -47,46 +64,50 @@
         </div>
         <% } %>
         <!-- Display Comments -->
-        <h2>Comments</h2>
         <div class="comments-wrapper">
-        <% if (spark.comments.length > 0) { %>
-            <% spark.comments.forEach(comment => { %>
-            <div class="comments-card">
-                <div class="comment-section">
-                    <p>Post On:</p>
-                    <p><small><%= new Date(comment.createdAt).toLocaleDateString('en-GB', { 
-                    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' 
-                    }) %></small></p>
-                </div>
-                <div class="comment-section">
-                    <%= comment.comment %>
-                </div>
-                <div class="comment-section">
-                    <p>Written by:</p>
-                    <p><small><%= comment.user.username %></small></p>
-                </div>
-                <div>
-                    <% if(user && comment.user._id.equals(user._id)) { %>
-                        <form action="/sparks/<%= spark._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST" class="btn-form">
-                            <button class="comment-delete" type="submit">🗑️</button>
-                        </form>
-                    <% } %>
-                </div>
-                <% }) %>
-            </div>
-        <% } else { %>
-            <p>Be the first to comment on this spark.</p>
-        <% } %>
-        
-
+        <h2>Comments</h2>
+        <div class="view-comments">
+            <% if (spark.comments.length > 0) { %>
+                <div class="comment-cards">    
+                    <% spark.comments.forEach(comment => { %>
+                        <div class="comments-card">
+                            <div class="comment-section">
+                                <p>Post On:</p>
+                                <p><small><%= new Date(comment.createdAt).toLocaleDateString('en-GB', { 
+                                weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' 
+                                }) %></small></p>
+                            </div>
+                            <div class="comment-section">
+                                <%= comment.comment %>
+                            </div>
+                            <div class="comment-section">
+                                <p>Written by:</p>
+                                <p><small><%= comment.user.username %></small></p>
+                            </div>
+                            <div>
+                                <% if(user && comment.user._id.equals(user._id)) { %>
+                                    <form action="/sparks/<%= spark._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST" class="btn-form">
+                                        <button class="comment-delete" type="submit">🗑️</button>
+                                    </form>
+                                <% } %>
+                            </div>
+                        </div>
+                    <% }) %>
+                </div>    
+            <% } else { %>
+                <p>Be the first to comment on this spark.</p>
+            <% } %>
+        </div>
+        <div class="write-comments">
         <!-- Create New Comment -->
-    <% if(user) { %>
-        <form class="form" action="/sparks/<%= spark._id %>/comments" method="POST">
-            <label for="comment">Comment</label>
-            <input type="text" name="comment" id="comment">
-            <button class="link-btn"  type="submit">Share Comment</button>
-        </form>
-    <% } %>
+            <% if(user) { %>
+                <form class="form" action="/sparks/<%= spark._id %>/comments" method="POST">
+                    <label for="comment">Comment</label>
+                    <textarea class="comment-input" name="comment" id="comment"></textarea>
+                    <button class="link-btn"  type="submit">Share Comment</button>
+                </form>
+            <% } %>
+        </div>
 </body>
 <!-- Link to Scripts -->
     <script src="/scripts/scripts.js"></script>

@@ -3,16 +3,17 @@ const mongoose = require('mongoose')
 const express = require('express');
 
 
+
+
 //!--Router
 const router = express.Router();
 
 //!--Model
 const Spark = require('../models/sparks.js');
-const isSignedIn = require('../middleware/is-signed-in.js');
-const spark = require('../models/sparks.js');
+
 
 //!--Middleware Functions
-
+const isSignedIn = require('../middleware/is-signed-in.js');
 
 //!--Routes
 
@@ -51,12 +52,6 @@ router.post('/', async (req, res) => {
         })
     }
 })
-
-//--Profile Page
-router.get('/profile', isSignedIn, async (req, res, next) => {
-    res.render('sparks/profile.ejs')
-})
-
 
 //--Sparks Show Page
 router.get('/:sparkId', async (req, res, next) => {
@@ -102,6 +97,7 @@ router.put('/:sparkId', async (req, res) => {
         if(spark.creator.equals(req.session.user._id)) {
             const updatedSpark = await Spark.findByIdAndUpdate(req.params.sparkId, req.body, {new: true});
             req.session.message = "Great news! Your spark has been updated."
+            req.session.message = ('success', 'Action was succesful!');
             req.session.save(() => {
                 return res.redirect(`/sparks/${req.params.sparkId}`)
         })
@@ -166,6 +162,48 @@ router.delete('/:sparkId/comments/:commentId', isSignedIn, async (req, res) => {
         return res.status(500).send('<h1>Something went wrong</h1>')
     }
 })
+//!-- Likes 
+//Add a like
+router.post('/:sparkId/likes', isSignedIn, async (req, res, next) => {
+    try {
+        const spark = await Spark.findById(req.params.sparkId)
+        console.log(spark)
+
+        if (!spark) return next()
+
+        spark.likes.push(req.session.user._id)
+        await spark.save()
+
+        return res.redirect(`/sparks/${req.params.sparkId}`)
+    } catch (error) {
+        console.log(error)
+        req.session.message = 'Like request unsuccessful'
+        req.session.save(() => {
+            return res.redirect(`/sparks/${req.params.sparkId}`)
+        })
+    }
+})
+//Remove a like
+router.delete('/:sparkId/likes', isSignedIn, async (req, res, next) => {
+    try {
+        const spark = await Spark.findById(req.params.sparkId)
+        console.log(spark)
+
+        if (!spark) return next()
+
+        spark.likes.pull(req.session.user._id)
+        await spark.save()
+
+        return res.redirect(`/sparks/${req.params.sparkId}`)
+    } catch (error) {
+        console.log(error)
+        req.session.message = 'Like request unsuccessful'
+        req.session.save(() => {
+            return res.redirect(`/sparks/${req.params.sparkId}`)
+        })
+    }
+})
+
 
 // Export Router
 module.exports = router

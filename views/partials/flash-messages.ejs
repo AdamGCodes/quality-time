@@ -1,0 +1,18 @@
+<!-- Chat CPT Aided -->
+<% if (message.success) { %>
+    <div class="alert alert-success alert-dismissible">
+        <span><%= messages.success %></span>
+        <button type="button" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+<% } %>
+
+<% if (message.error) { %>
+    <div class="alert alert-danger alert-dismissible">
+        <span><%= messages.error %></span>
+        <button type="button" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+<% } %>

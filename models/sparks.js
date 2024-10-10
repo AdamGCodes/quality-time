@@ -17,13 +17,18 @@ const sparkSchema = new mongoose.Schema({
     resources: { type: String, required: ['Add a resources or state "none"', true] },
     description: { type: String, required: ['Add a description', true] },
     variations: { type: String},
+    image: String,
     creator: {
     type: mongoose.Schema.Types.ObjectId, 
     ref: 'User', required: true },
     comments: [commentSchema],
-    tags: [tagSchema]}, {
-        timestamps: true
-    })
+    tags: [tagSchema],
+    likes: [{ type: mongoose.Types.ObjectId, ref: 'User' }]}, 
+    { timestamps: true },
+    
+)
+
+
 
 const spark = mongoose.model('spark', sparkSchema)
 

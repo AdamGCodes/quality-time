@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include('../partials/head') %>
+</head>
+<body>
+    <%- include('../partials/header') %>
+    <div class="profile-content">
+        <h1>Welcome to your profile area <%= user.username %> </h1>
+        <h3>Username</h3> 
+        <p><%= user.username %></p>
+        <br>
+        <h3>Username</h3>
+        <p> <%= user.username %></p>
+        <br>
+        <h3>Email</h3>
+        <p><%= user.email %></p>
+        <br>
+        <h3>Sparks I like</h3>
+    <div class="card-wrapper carousel">
+        <% userProfile.myLikes.forEach(myLike => { %>
+            <a href="/sparks/<%= myLike._id %>">
+                <div class="spark-card">
+                    <div class="spark-card-title">
+                        <%= myLike.title %>
+                    </div>
+                    <div class="spark-card-img">
+                        <img src="/images/painted-hands-kid.jpg" alt="Young child holding hands up showing they are covered in brightly coloured paints.">
+                    </div>
+                    <div class="spark-card-blurb">
+                        <%= myLike.description %>
+                    </div>
+                    <div class="spark-card-tags">
+                        <p>NO TAGS YET</p>
+                    </div>
+                    <div class="spark-card-rating">
+                        <p>*****</p>
+                    </div>
+                </div>
+            </a>
+        <% }) %>    
+    </div>
+    <h3>My Sparks</h3>
+    <div class="card-wrapper carousel">
+        <% userProfile.mySparks.forEach(mySpark => { %>
+            <a href="/sparks/<%= mySpark._id %>">
+                <div class="spark-card">
+                    <div class="spark-card-title">
+                        <%= mySpark.title %>
+                    </div>
+                    <div class="spark-card-img">
+                        <img src="/images/painted-hands-kid.jpg" alt="Young child holding hands up showing they are covered in brightly coloured paints.">
+                    </div>
+                    <div class="spark-card-blurb">
+                        <%= mySpark.description %>
+                    </div>
+                    <div class="spark-card-tags">
+                        <p>NO TAGS YET</p>
+                    </div>
+                    <div class="spark-card-rating">
+                        <p>*****</p>
+                    </div>
+                </div>
+            </a>
+        <% }) %>    
+    </div>
+    <div>
+        <% if(user) { %>
+        <div class="links-wrapper">
+            <div class="links-column">
+                <div class="link-btn">
+                    <a href="/auth/profile/edit">Edit Your Profile</a>
+                </div>
+            </div>
+        </div>
+        <% } %>
+    </div>
+
+</body>
+<!-- Link to Scripts -->
+    <script src="/scripts/scripts.js"></script>
+</html>

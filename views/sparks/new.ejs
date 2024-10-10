@@ -13,7 +13,7 @@
     <%- include('../partials/header') %>
     <h1>Make Your Spark</h1>
     <div class="form-wrapper">
-        <form action="/sparks" method="POST">
+        <form action="/sparks" method="POST" enctype="multipart/form-data">
             <div class="row">
                 <label for="title">Title of Your Spark</label>
                 <input type="text" name="title" id="title" value="<%= fieldValues.title %>">
@@ -41,6 +41,14 @@
             </div>
             <!-- Need to experiment with tags and see what is POSTed when check boxes are used -->
             <!-- Having submitted a string for a dag nothing was sent, do I need to link that to a different form action as it's a different schema. -->
+            <div class="row">
+                <label for="image">Image of Your Spark</label>
+                <input type="file" name="image" id="image" accept="image/*">
+            </div>
+            <% if (errors.message) { %>
+                <p class="error-message"><%= errors.message %></p>
+            <% } %>   
+            
             <div class="row">
                 <label for="tag">Add Tags</label>
                 <input type="text" name="tag" id="tag">

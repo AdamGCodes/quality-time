@@ -125,14 +125,58 @@ main {
     border: solid white 4px;
 }
 
-.error-message {
-    color: red;  
+.like-btn-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: -20px;
 }
-/* Can I set a conditional near the top of every page to be success, failure or warning for my flash messages */
-/* Can I make them stand out more and cancel on click? */
-.success-message {
-    color: green;
+
+.like-btn {
+    margin: 0;
+    border: transparent;
+    padding: 0;
+    display: flex;
+    align-self: flex-start;
+    background-color: transparent;
+    height: fit-content;
+    width: fit-content;
+    cursor: pointer;
+    z-index: 1;
 }
+.like-btn img{
+    height: 40px;
+}
+/* Flash messaging display (Chat GPT Aided */
+.alert {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    position: relative;
+    transition: opacity 0.5s ease;
+}
+
+.alert .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
 /* Header and Home Header */
 header {
     margin-bottom: 0px;
@@ -264,6 +308,13 @@ nav a img {
 .card-wrapper a {
     text-decoration: none;
 }
+.carousel {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-y: hidden;
+    overflow-x: scroll;
+}
+
 .spark-card {
     text-align: center;
     width:325px;
@@ -340,11 +391,18 @@ nav a img {
     padding: 20px;
     display: flex;
     flex-flow: column wrap;
-    width: 90%;
+    width: 75%;
     border: solid #001060 5px;
     border-radius: 20px;
 }
+.comment-cards {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 20px;
+}
 .comments-card {
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     border: #F0821D 4px solid;
@@ -360,7 +418,6 @@ nav a img {
     background-color:#001060;
     border-radius: 10px;
 }
-
 .comment-delete {
     background-color: #F0821D;
     cursor: pointer;
@@ -369,6 +426,13 @@ nav a img {
 .comment-delete:hover {
     box-shadow: 1px 1px 0px black;
 }
+.comment-input {
+    margin-top: -20px;
+    border: solid #F0821D 4px;
+    width: 75%;
+    height: 100px;
+}
+
 /* Forms */
 .form-wrapper {
     margin-top: 10px;
@@ -426,6 +490,19 @@ form button {
     color: white;
     border-radius: 15px;
 }
+
+.user-info-field {
+    max-width: 75%;
+}
+
+/* Media Queries */
+@media screen and (min-width: 768px){
+    .user-info-field {
+        max-width: 50%;
+        }
+}
+
+
 
 @media screen and (max-width: 768px) {
     .nav-links{

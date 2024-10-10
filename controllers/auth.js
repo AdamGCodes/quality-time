@@ -4,6 +4,7 @@ const express = require('express');
 const bcrypt = require('bcryptjs');
 
 
+
 //!--Router
 const router = express.Router();
 
@@ -11,7 +12,7 @@ const router = express.Router();
 const User = require('../models/users.js');
 
 //!--Middleware Functions
-
+const isSignedIn = require('../middleware/is-signed-in.js');
 
 //!-- Routes
 
@@ -109,9 +110,67 @@ router.get('/sign-out', (req, res) => {
     });
         res.redirect("/")
 })
-//--
 
-//--
+//--Profile Page
+router.get('/profile', isSignedIn, async (req, res, next) => {
+    try {
+        const userProfile = await User.findById(req.session.user._id).populate('myLikes').populate('mySparks');
+        console.log(userProfile)
+        return res.render('auth/profile.ejs', { userProfile })
+    } catch(error) {
+        console.log(error)
+        return res.status(500).send('<h1>Something went wrong</h1>');
+    }
+    
+})
+
+//--Edit Profile Page
+router.get('/profile/edit', isSignedIn, async (req, res) => {
+    console.log("hit profile edit route")
+    try {
+        const user = req.session.user
+        if(user){
+            return res.render(`auth/edit-profile.ejs`)
+        } else {
+            return res.redirect('/sign-in')
+        }
+    }catch{
+
+    }})
+//     
+//         const user = await User.findById(req.params.userId);
+//         console.log(user)
+//         if (!user) {
+//             return res.redirect(`/auth/log-in`)
+//         }
+//         if (!user._id.equals(req.session.user._id)) {
+//         return res.render(`auth/edit-profile.ejs`, { user })
+//         }
+//     } catch (error) {
+//         console.log(error)
+//         return res.status(500).send('<h1>Something went wrong</h1>')
+//     }
+// });
+
+// //--Edit Profile Route
+// router.put('/:sparkId', async (req, res) => {
+//     try {
+//         const spark = await Spark.findById(req.params.sparkId)
+//         if (spark.creator.equals(req.session.user._id)) {
+//             const updatedSpark = await Spark.findByIdAndUpdate(req.params.sparkId, req.body, { new: true });
+//             req.session.message = "Great news! Your spark has been updated."
+//             req.session.message = ('success', 'Action was succesful!');
+//             req.session.save(() => {
+//                 return res.redirect(`/sparks/${req.params.sparkId}`)
+//             })
+//         } else {
+//             throw new Error('Only the creator of a spark can edit it.')
+//         }
+//     } catch (error) {
+//         console.log(error)
+//         return res.status(500).send('<h1>Something went wrong</h1>')
+//     }
+// });
 
 
 //--! Export Router
