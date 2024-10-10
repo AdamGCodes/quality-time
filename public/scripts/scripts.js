@@ -7,3 +7,4 @@ burger.addEventListener('click', () => {
 
     burger.classList.toggle('toggle');
 })
+

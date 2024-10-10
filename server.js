@@ -12,6 +12,8 @@ require('dotenv/config');
 //!-- Middleware Functions
 const isSignedIn = require('./middleware/is-signed-in.js')
 const passUserToView = require("./middleware/pass-user-to-view.js")
+const allowErrors = require('./middleware/allow-errors.js')
+const initFlashMessages = require('./middleware/init-flash-messages.js')
 
 //!--Routers/Controllers
 const sparksRouter = require('./controllers/sparks.js');
@@ -36,7 +38,8 @@ app.use(session({
 }))
 
 app.use(passUserToView);
-
+app.use(allowErrors);
+app.use(initFlashMessages);
 
 //!--Routes
 // -- Landing Page

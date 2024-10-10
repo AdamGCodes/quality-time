@@ -7,15 +7,19 @@
     <%- include('../partials/head') %>
 </head>
 <body>
-    <header>
-        <%- include('../partials/header') %>
-    </header>
+    <%- include('../partials/header') %>
     <div class="form-wrapper">
         <form action="/auth/sign-in" method="POST">
             <label for="username">Username</label>
             <input type="text" name="username" id="username">
+            <% if (errors.username) { %>
+                <p class="error-message"><%= errors.username.message %></p>
+            <% } %>
             <label for="password">Password</label>
             <input type="password" name="password" id="password">
+            <% if (errors.password) { %>
+                <p class="error-message"><%= errors.password.message %></p>
+            <% } %>
             <button type="submit">Sign In</button>
         </form>
     </div>

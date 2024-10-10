@@ -28,7 +28,10 @@ router.post('/sign-up', async (req, res) =>{
             return res.status(422).send('Password entries did not match')
         };
         // Hash password
+        if(req.body.password){
         req.body.password = bcrypt.hashSync(req.body.password, 10)
+        }
+        
         const userInDatabase = await User.findOne({ username: req.body.username});
         if (userInDatabase) {
             //This works but will need to make this a flash message redirecting to the signup form when I get to that stage.
@@ -48,9 +51,13 @@ router.post('/sign-up', async (req, res) =>{
         });    
         };
     } catch (error) {
-        return res.status(500).send('<h1>Something went wrong</h1>')
-    };
-});
+        console.log(error.errors)
+        return res.status(500).render('auth/sign-up.ejs', {
+            errors: error.errors,
+            fieldValues: req.body
+    }
+)}})
+
 
 //-- Sign In Page/Form
 router.get("/sign-in", (req, res) => {
@@ -91,6 +98,7 @@ try {
     return res.status(500).send('<h1>Something went wrong</h1>');
 }
 });
+
 //-- Sign Out Route
 router.get('/sign-out', (req, res) => {
     req.session.destroy((err) => {

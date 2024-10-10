@@ -8,9 +8,10 @@
     <%- include('../partials/head') %>
 </head>
 <body>
-    <header>
-        <%- include('../partials/header') %>
-    </header>
+    <%- include('../partials/header') %>
+    <% if(message) { %>
+        <p class="success-message"><%= message %></p>
+    <% } %>
     <h1>All Our Sparks</h1>
     <div class="card-wrapper">
         <% allSparks.forEach(Spark => { %>

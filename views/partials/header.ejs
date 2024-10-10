@@ -1,13 +1,17 @@
 <header>
     <nav id="navbar">
-        <img src="/images/parent-child-white 1.svg" alt="App logo abstract drawing of a smaller heart inside a larger hard represenitng parent and child">
+        <% if (user) { %>
+        <div class="profile-link">
+            <img src="/images/parent-child-white 1.svg" alt="Heart shaped parent/child icon">
+            <ul class="nav-links"><li><a href="/sparks/profile">Our Profile</li></ul></a>
+        </div>
+        <% } %>
         <ul class="nav-links">
             <li><a href="/">Home</a></li>
             <li><a href="/sparks">Find a Spark</a></li>
             <!-- Maybe handle the example sparks with a tag and a link that only brings up sparks filtered by that tag -->
             <% if (user) { %>
                 <li><a href="/sparks/new">Make a Spark</a></li>
-                <li><a href="/sparks/profile">My Profile</a></li>
                 <li><a href="/auth/sign-out">Sign Out</a></li>
             <% } else { %>
                 <li><a href="/auth/sign-in">Sign In</a></li>
@@ -20,13 +24,9 @@
             <div class="line3"></div>
         </div>
     </nav>
-    <img class="header-bg" src="/images/Orange-splodge.svg" alt="decorative">
-    <div class="header-content">
-        <div class="header-title-logo">
-            <h1>Quality Time</h1>
-            <h2>starts with a spark</h2>
-        </div>
-    </div>
+    <div class="title" >Quality Time</div>
+    <div class="subtitle">Starts with a spark</div>
+    <div class="hero-img"><img src="/images/blowing-bubbles.jpg" alt="A father and sun laying down on grass and joyfully blowing bubbles together."></div>
 </header>
 
 
