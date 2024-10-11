@@ -1,8 +1,7 @@
 //!--Requirements
 const mongoose = require('mongoose')
 const express = require('express');
-
-
+const upload = require('../middleware/upload.js')
 
 
 //!--Router
@@ -34,8 +33,11 @@ router.get('/new', isSignedIn, (req, res) => {
 })
 
 //--Sparks Create Route
-router.post('/', async (req, res) => {
+router.post('/', isSignedIn, upload.array('sparkImages', 4), async (req, res) => {
     try {
+        if(req.files){
+            req.body.sparkImages = req.files.map(file => file.path)
+        }
         req.body.creator = req.session.user._id
         console.log(req.body)
         const spark = await Spark.create(req.body)
@@ -45,7 +47,7 @@ router.post('/', async (req, res) => {
             return res.redirect(`/sparks`)
         })
     } catch (error) {
-        console.log(error.errors)
+        console.log(error)
         return res.status(500).render('sparks/new.ejs', { 
             errors: error.errors,
             fieldValues: req.body

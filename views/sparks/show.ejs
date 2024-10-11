@@ -35,6 +35,12 @@
         </div> 
     </div>
         <div class="show-spark-main">
+            <!-- Images -->
+            <div class="spark-images-show">
+                <% spark.sparkImages.forEach((sparkImage, idx) => {%>
+                <img src="<%= sparkImage %>" alt="<%= spark.name %> display image <%= idx + 1 %>">
+                <% }) %>
+            </div>
             <div class="show-spark-content">
                 <h2>Resources</h2>
                 <p><%= spark.resources %></p>

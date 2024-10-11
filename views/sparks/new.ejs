@@ -16,21 +16,21 @@
         <form action="/sparks" method="POST" enctype="multipart/form-data">
             <div class="row">
                 <label for="title">Title of Your Spark</label>
-                <input type="text" name="title" id="title" value="<%= fieldValues.title %>">
+                <input type="text" name="title" id="title" value="<%= fieldValues.title %>" required>
                 <% if (errors.title) { %>
                 <p class="error-message"><%= errors.title.message %></p>
                 <% } %>
             </div>
             <div class="row">
                 <label for="resources">Resources Needed</label>
-                <input type="text" name="resources" id="resources" value="<%= fieldValues.resources %>">
+                <input type="text" name="resources" id="resources" value="<%= fieldValues.resources %>" required>
                 <% if (errors.resources) { %>
                 <p class="error-message"><%= errors.resources.message %></p>
                 <% } %>
             </div>
             <div class="row">
                 <label for="description">Explain Your Spark</label>
-                <textarea type="text" name="description" id="description"><%= fieldValues.description %></textarea>
+                <textarea type="text" name="description" id="description" required><%= fieldValues.description %></textarea>
                 <% if (errors.description) { %>
                 <p class="error-message"><%= errors.description.message %></p>
                 <% } %>
@@ -42,8 +42,8 @@
             <!-- Need to experiment with tags and see what is POSTed when check boxes are used -->
             <!-- Having submitted a string for a dag nothing was sent, do I need to link that to a different form action as it's a different schema. -->
             <div class="row">
-                <label for="image">Image of Your Spark</label>
-                <input type="file" name="image" id="image" accept="image/*">
+                <label for="sparkImages">Images of Your Spark</label>
+                <input type="file" name="sparkImages" id="sparkImages" accept="image/jpg, image/png, image/jpeg, image/svg" multiple />
             </div>
             <% if (errors.message) { %>
                 <p class="error-message"><%= errors.message %></p>

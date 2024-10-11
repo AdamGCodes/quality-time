@@ -17,7 +17,7 @@ const sparkSchema = new mongoose.Schema({
     resources: { type: String, required: ['Add a resources or state "none"', true] },
     description: { type: String, required: ['Add a description', true] },
     variations: { type: String},
-    image: String,
+    sparkImages: [String],
     creator: {
     type: mongoose.Schema.Types.ObjectId, 
     ref: 'User', required: true },

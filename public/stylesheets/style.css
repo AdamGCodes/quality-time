@@ -148,6 +148,23 @@ main {
 .like-btn img{
     height: 40px;
 }
+
+#sparkImages {
+    display: flex;
+    align-items: center;
+    color: white;
+    padding-top: 10px;
+}
+
+.spark-images-show{
+    margin-top: 40px;
+    display: flex;
+    flex-flow: row wrap;
+    width: 80%;
+}
+.spark-images-show img{
+    width: 30%;    
+}
 /* Flash messaging display (Chat GPT Aided */
 .alert {
     padding: 10px;
@@ -302,7 +319,7 @@ nav a img {
 .card-wrapper {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    justify-content: center;
     width: 85%;
 }
 .card-wrapper a {
@@ -388,6 +405,7 @@ nav a img {
 
 /* Comments */
 .comments-wrapper{
+    margin-top: 50px;
     padding: 20px;
     display: flex;
     flex-flow: column wrap;

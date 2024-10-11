@@ -21,7 +21,11 @@
                         <%= Spark.title %>
                     </div>
                     <div class="spark-card-img">
-                        <img src="/images/painted-hands-kid.jpg" alt="Young child holding hands up showing they are covered in brightly coloured paints.">
+                        <% if( Spark.sparkImages.length < 1) { %>
+                            <img src="/images/painted-hands-kid.jpg" alt="Young child holding hands up showing they are covered in brightly coloured paints.">
+                        <% } else { %>
+                            <img src="<%= Spark.sparkImages[0] %>" alt="">
+                        <% } %>
                     </div>
                     <div class="spark-card-blurb">
                         <%= Spark.description %>
