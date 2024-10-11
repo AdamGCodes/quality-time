@@ -1,23 +1,20 @@
 <header>
     <nav id="navbar">
-        <% if (user) { %>
-        <div class="profile-link">
-            <img src="/images/parent-child-white 1.svg" alt="Heart shaped parent/child icon">
-            <ul class="nav-links"><li><a href="/auth/profile">Our Profile</li></ul></a>
-        </div>
-        <% } %>
         <ul class="nav-links">
+        <% if (user) { %>
+            
+            <li class="profile-li"><a href="/auth/profile"><img src="/images/parent-child-white 1.svg" alt="Heart shaped parent/child icon">Our Profile</a></li>
             <li><a href="/">Home</a></li>
             <li><a href="/sparks">Find a Spark</a></li>
-            <!-- Maybe handle the example sparks with a tag and a link that only brings up sparks filtered by that tag -->
-            <% if (user) { %>
-                <li><a href="/sparks/new">Make a Spark</a></li>
-                <li><a href="/auth/sign-out">Sign Out</a></li>
-            <% } else { %>
-                <li><a href="/auth/sign-in">Sign In</a></li>
-                <li><a href="/auth/sign-up">Sign Up</a></li>
-                <% } %>
-        </ul>
+            <li><a href="/sparks/new">Make a Spark</a></li>
+            <li><a href="/auth/sign-out">Sign Out</a></li>
+        <% } else { %>
+            <li><a href="/">Home</a></li>
+            <li><a href="/sparks">Find a Spark</a></li>
+            <li><a href="/auth/sign-in">Sign In</a></li>
+            <li><a href="/auth/sign-up">Sign Up</a></li>
+        <% } %>
+    </ul>
         <div class="burger">
             <div class="line1"></div>
             <div class="line2"></div>

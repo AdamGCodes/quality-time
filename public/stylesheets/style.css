@@ -221,17 +221,10 @@ header {
 
 /* Nav Bar */
 nav {
-    top: 0px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 20px;
     z-index: 1;
-}
-
-nav a img {
-    width: 7vw;
-    margin: -10px 0 -7vw 10px;
+    padding: 0px 10px;
 }
 
 .welcome {
@@ -247,7 +240,7 @@ nav a img {
 
 .nav-links li {
     display: inline-block;
-    
+    vertical-align: middle;
 }
 
 .nav-links a {
@@ -263,19 +256,33 @@ nav a img {
 .nav-links a:focus,
 .nav-links a:hover {
     background-color: #001060;
+    padding: 0.5vw 1vw;
     color: #fff;
 }
 
-.profile-link {
+.profile-li {
     display: flex;
-    align-items: center;
+    position: relative;
+    margin: 0;
+    padding: 0%;
 }
-.profile-link a:hover {
+.profile-li img {
+    display: flex;
+    position: relative;
+    height: 6vw;
+    margin: 0 10px 0 0;
+    padding: 0%;
+}
+.profile-li a {
+    display: flex;
+    position: relative;
+    align-items: center;
+    padding: 0%;
+}
+.profile-li a:hover {
     color: #fff;
     background-color: transparent;
-}
-.profile-link img {
-    width: 5vw;
+    padding: 0;
 }
 
 .burger {
@@ -320,6 +327,7 @@ nav a img {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     width: 96%;
 }
 .card-wrapper a {
@@ -593,6 +601,10 @@ form button {
 
     .card-wrapper {
         flex-direction: column;
+        width: 100%;
+    }
+    .spark-card{
+        margin: 5px;
     }
     /* The bellow doesn't seem to be doing anything need to investiage further */
     .card {
