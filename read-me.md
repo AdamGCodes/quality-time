@@ -1,43 +1,3 @@
-ReadMe Template Worksheet
-
-Your ReadMes are the key deliverable that engineers will want to see as part of your job search. Each engineering team will look at different aspects of your ReadMe and repo. Some will go into the code itself and explore. Others will just want to see the showcase code snippets in the main ReadMe. Some will read the full thing to understand your approach, others will skim to specific sections.
-
-It’s crucial that you cover all the different sections below to ensure that you’ve got the information for all engineers that check these out. 
-
-We regularly have employers discuss the importance of the ReadMes in what they’re looking for and why they interview the grads that they do - so don’t underestimate the importance of writing strong ReadMes! 
-
-For any pair or group project, you cannot share a ReadMe. These must be written independently to ensure that the engineers reading this understands your specific experience and approach. 
-
-It’s a good idea to start your ReadMes during the planning stage as this is the best way to get ahead and save time when it comes to finalising your first draft post-project. As you plan each aspect of your project, note down what you intend to do with screenshots of your plan and anything else you think would be useful, then when you execute this part in your code, you can adjust this part of your ReadMe as needed depending on how your process changed, or if it went as planned then you can leave it as it is.
-
-Make a copy of this document for each project you use throughout the course and fill in each section. 
-
-Once the content has been finalised here, you can then quickly upload these onto your GitHub repository later.
-
-
-
-
-Things To Consider:
-
-That there are no spelling mistakes in your ReadMe - if you see a spelling error highlighted below, edit this. 
-Some engineers will reject applicants if their ReadMes are full of mistakes. From their perspective, if your ReadMes are full of mistakes, what is your code like…
-
-That your technologies are capitalised correctly - i.e JavaScript, jQuery, MongoDB
-
-That your formatting is consistent throughout - headers, indentation, full stops in bullets etc
-
-Any hyperlink included works
-
-That you include images throughout - code snippets, pictures of your planning stage, screenshots of the final project.
-These can be still screenshots or gifs
-This breaks up the text in your ReadMe and helps to keep the reader engaged
-
-That your ReadMe sounds like you - see this as an opportunity to showcase who you are to the engineering community and prospective employers. 
-Think back to the Personal Brand session and how employers want to get a sense of who you are. The content you write should sound as if you’re talking through your experience. 
-
-
-ReadMe Sections
-
 Description
 This is the second of four projects created during week 6 of a 12 week bootcamp. 
 
@@ -48,7 +8,7 @@ Many parents struggle to know what to do with kids and how to make sure that tie
 
 Each activity will set out the resources required and clear and concise instructions as to how to set up and run the activity. 
 
-Registered users will be able to build out a profile with further information to help tailor their expreince and the content they are presented. 
+Registered users will be able to build out a profile with further information to help tailor their expreince and the content they are presented with.
 
 In adition to this registered users will also be able to:
 Add their own activities using a form.
@@ -58,67 +18,52 @@ Like/favourite others activities.
 
 
 Deployment link
-
-Instructions
-
-Here include the information on where the deployed project can be found. If login details are needed to access the full project, make sure you include them.
-
-If you have not yet deployed your project, you can add this in later.
-
-Insert your Deployment link here:
-
-
+https://quality-time.netlify.app/
 
 
 Getting Started/Code Installation
+Web based app no need for installation. 
 
-Instructions
-
-Explain how the reader accesses your code. Include a step by step approach.
-
-Insert your Getting Started/Code Installation here:
-
-
-
+If you wish to view the code for this proect, it can be found at: https://github.com/Archietheowl/quality-time
 
 
 Timeframe & Working Team (Solo/Pair/Group)
+This project was created in one week with an MVP target set and multiple stretch goals. A number of stretch goals were reached an those not achieved are being added to "future developements" bellow.
 
-This project will be created in one week with an MVP target set and multiple stretch goals. Any stretch goals not achieved by the end of the project week can be added to the future developement section. 
-
-This is a solo project. 
-
-
-
-
+This was a solo project. 
 
 Technologies Used
-Planning and documentation
-    Mardown
-    Figma
-    Trello
-    dbdiagram.io
-Developer Tools
-    VSCode
-Front End
-    HTML
-    CSS
-    JavaScript
-Back End
-    MEN STACK
-            MongoDB
-            ExpressJS
-            NodeJS
-        EJS
-        Mongoose
-
-
+    Planning and documentation
+        Mardown
+        Figma
+        Trello
+        dbdiagram.io
+    Developer Tools
+        VSCode
+    Front End
+        HTML
+        CSS
+        JavaScript
+    Back End
+        MEN STACK
+                MongoDB
+                ExpressJS
+                NodeJS
+            EJS
+            Mongoose
+    Hosting/Cloud Storage
+        Netlify - Deployment
+        Cloudinary - Cloud resource storage
 
 Brief
-One week to create a CRUD application of our choice using skills learned previously on the course, specificlaly using the MEN stack we have been working with over the last two weeks. 
-
-!!!!!!!!!!!! How much detail to go in here do we need to past all project deliverables here or just an overview?
-
+One week to create a CRUD application of our choice using skills learned previously on the course, specificlaly using the MEN stack skills covered in the two weeks proceding this procet week. 
+Project deliverables included:
+Planning
+    User story
+    Wireframing
+    Planning our restful routes
+    Planning our data architecture
+Build
 
 
 
@@ -175,72 +120,43 @@ Insert your Challenges here:
 
 
 Wins
+I'm pretty happy with the visual design and user interface of the project. There is certainly more that I would like to do given time. I'm not naturally creative or very focused on asthetics but throughout the planning and build process I have kept the user in my mind and tried to ensure that it provides an overal experience that meets or excedes there expections/needs. 
 
-Instructions
+I've also run a couple of accessability checks and am pleased that on that automated tests is scores farily well in the mid to high 90s(%) I did keep this in mind throughout the proces when choosing colours, sizes and other interface items. 
 
-The Wins section is your opportunity to highlight the aspects of your project you are most proud of. See this as your chance to showcase these parts of your projects to the engineers reading your ReadMes.
-
-Things you could discuss here:
-
-Interesting problem solving you did
-Strong sections of code
-Collaboration with other team members
-Visual design of the project
-
-Insert your Wins here:
+Although there is more I'd like to do with the navigation and filtering of resources I do like the card based system as I think it shows the user what they need to see in order to make choices and navigate smoothly. I didn't get to many of my phase 3 stretch goals but am very keen to implment the tag and filtering functions as I feel they would really bring the site together very well. I've done some work on this but not enough to have it running reliably in time for presentation. 
 
 
 Key Learnings/Takeaways
-
-Instructions
-
-This section is one of the other most important parts of your ReadMe from an engineers’ perspective and helps to differentiate each of you from your classmates and team members. 
-
-Engineers love to understand what you learn from each project and how it has shaped you as an engineer. 
-
-See this as your opportunity to show the engineers how your skills grew during each project sprint. 
-
-Things you could discuss here:
-
-What Technologies/Tools do you now feel more confident with? Tell them specifically what you learnt about these. 
-What engineering processes did you become more comfortable with? Standups? Pair programming? Project management? Tell them what you learnt from these processes?
-
-Insert your Key Learnings/Takeaways here:
-
+There were two fundamental aspects of the process that I've taken away from this project (as well as a number of other important ones)
+1 Planning! I spent a long time planning the project and at times got frustrated as I felt it was taking too long and I want to get started. However, I stuck with it and spend as much time as I needed on each element of my plan. Each aspect was important as all the others as the idea grew in my mind it became clear that this project would be far more complex than anything I'd attempted before. The interaction of pages, routes, data sets, user interface and logic would have been overwhelming if I had not planned in great detail. Thanks to thinking through in great detail and taking the time to record all of this in my plans the first 3 days of the build went incredibly smoothly and this meant I was fairly close to MVP with plenty of time to focus on a really effective UI and start looking at some of my stretch goals. 
+2 Testing testing testing.  As our stack grows and we learn more and more technologies it's become apparent to me that vital process of starting each element of a project very simply and testing/loging out the whole way along. I have done a little more with Python in the past than JS and find that JS's tools for debugging are a little less explicit than python so testing every single step of the way so you can easily isolate and resolve any issues before you move on is an estential way to work. Any time I've gotten too into what I'm doing and run ahead creating an entire route or function that I thought was straight forward, I've run into issues and found it far harder to fix the issue and move on. 
+Aside from these I think I have generally become more comfortable with the back end technologies and the idea of restful routing. I still don't feel I know all the syntaxes and structures backwards and forwards but as the week has gone on I've needed to refer to my notes and other support less and less.  
 
 
 
 
 Bugs
-
-Instructions
-
-If you have any bugs in your project, it’s important that you flag them in your ReadMe. This helps the engineers reviewing your projects to understand that you are aware that there are issues - if you don’t flag these, then they won’t have that visibility that you know these problems are in your code and it can result in them not having a full understanding of your technical knowledge. 
-
-In either sentences or bullets, explain what the bugs are.
-
-If you have no bugs, you can leave this section blank.
-
-Insert your Bugs here:
+Further testing needed before definitive list but for now:
+User profile edit page is not yet working to push updated data to database. 
+Some more work required on error handling. The UI is not good and there are sections that require flash notifications not yet in place.
+Not a bug but the site although responsive is not optimised for mobiles and has a few large resources that need to be resized or adapted to be lighterweight and perform better. 
 
 
 
 Future Improvements
 
-Instructions
-
-It’s common to get to the end of your project and have ideas on what you would do if you have more time, as well as how you might improve it. 
-
-If you do, you should detail this here. It’s great to give that context on potential future improvements, to share your creative or technical ideas with the engineers reading your ReadMes.
-
-In either sentences or bullets, explain what your future improvements would be.
-
-Insert your Future Improvements here:
-
-
-
-Password error handling in sign up form (password field doesn't work). This is probably about where in the controller this is called.
-
-error handling in update not working
-
-error handling on a new comment (how to manage this when you can't render a .ejs)
+A system of tagging used by users and applied to sparks in order to match users with the most relevent content. 
+Filtering in the Spark index page based on established tags
+A 0-5 rating scale (probably stars) for users to easily rate each spark. 
+Building on the rating system this could be build into the flitering system and also an average star rating given to each spark.
+Linking home page and a specific section on the user profile to push a small selection of relevent Sparks.
+Adding a smooth and appealing UI in the form of a carousel for browsing rows of cards.
+Addministrator authority to edit and delete comments and sparks of all users. 
+Creating downloadable/printable pages for each spark, dynamically so people can take sparks off line if needed.
+Printer friendly styling and print window button if users wish to print a page to take off line.
+Email address verification
+Administrator moderation before sparks go live.
+Analytics dashboard for Admin showing views, likes, most comment etc. 
+Email updates to users with links to relevent content.
+Broaden authorisation so users can allow friends to edit their sparks or create private sparks that most users can't see. 
