@@ -9,18 +9,17 @@
 <body>
     <%- include('../partials/header') %>
     <div class="profile-content">
-        <h1>Welcome to your profile area <%= user.username %> </h1>
+        <h1>Welcome to your profile <%= user.username %> </h1>
         <h3>Username</h3> 
         <p><%= user.username %></p>
-        <br>
-        <h3>Username</h3>
-        <p> <%= user.username %></p>
         <br>
         <h3>Email</h3>
         <p><%= user.email %></p>
         <br>
-        <h3>Sparks I like</h3>
-    <div class="card-wrapper carousel">
+    </div>
+    <h3>Sparks I like</h3>
+    <div class="profile-card-wrapper carousel">
+        
         <% userProfile.myLikes.forEach(myLike => { %>
             <a href="/sparks/<%= myLike._id %>">
                 <div class="spark-card">
@@ -44,7 +43,8 @@
         <% }) %>    
     </div>
     <h3>My Sparks</h3>
-    <div class="card-wrapper carousel">
+    <div class="profile-card-wrapper carousel">
+        
         <% userProfile.mySparks.forEach(mySpark => { %>
             <a href="/sparks/<%= mySpark._id %>">
                 <div class="spark-card">

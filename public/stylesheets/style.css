@@ -325,12 +325,6 @@ nav a img {
 .card-wrapper a {
     text-decoration: none;
 }
-.carousel {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-y: hidden;
-    overflow-x: scroll;
-}
 
 .spark-card {
     text-align: center;
@@ -449,6 +443,23 @@ nav a img {
     border: solid #F0821D 4px;
     width: 75%;
     height: 100px;
+}
+
+/* Profile Page */
+.profile-card-wrapper {
+    margin-bottom: 30px;
+    display: flex;
+    width: 90%;
+}
+
+.card-wrapper a {
+    text-decoration: none;
+}
+.carousel {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: scroll;
+
 }
 
 /* Forms */
