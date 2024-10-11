@@ -23,7 +23,7 @@ const sparkSchema = new mongoose.Schema({
     ref: 'User', required: true },
     comments: [commentSchema],
     tags: [tagSchema],
-    likes: [{ type: mongoose.Types.ObjectId, ref: 'User' }]}, 
+    likes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }]}, 
     { timestamps: true },
     
 )
